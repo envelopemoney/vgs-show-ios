@@ -65,6 +65,9 @@ extension VGSShow {
 			case .failure(let code, let data, let response, let error):
 				VGSShowRequestLogger.logErrorResponse(response, data: data, error: error, code: code)
 
+				print(response)
+				print(data)
+
 				// Track error.
 				let errorMessage = (error as NSError?)?.localizedDescription ?? ""
 				strongSelf.trackErrorEvent(with: code, message: errorMessage, type: .submit, extraInfo: extraAnalyticsInfo)
